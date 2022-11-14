@@ -226,8 +226,8 @@ os.system('cat mem_lats.csv >> stat_summary.txt')
 f_sss = open('short_stat_summary.txt','w')
 
 
-f_sss.write('all_lat_avg, '+ "{0:.1f}".format(all_lat_avg)+',\n')
-f_sss.write('IPC_ALL: '+ "{0:.6f}".format(ipc_all)+',\n')
+f_sss.write('all_lat_avg, '+ "{0:.1f}".format(all_lat_avg)+'\n')
+f_sss.write('IPC_ALL: '+ "{0:.6f}".format(ipc_all)+'\n')
 
 
 
