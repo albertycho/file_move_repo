@@ -23,10 +23,14 @@ for d in os.listdir('.'):
         line = mbwraw.readline()
         tmpmbw = []
         while line:
-            if('aggregate average bandwidth' in line):
-                tmp=line.split('aggregate average bandwidth ')[1];
+            if('aggregate average bandwidth ' in line):
+                tmp=line.split('aggregate average bandwidth')[1];
                 tmp=tmp.split('GB')[0]
-                bw = float(tmp)
+                try:
+                    bw = float(tmp)
+                except ValueError:
+                    line=mbwraw.readline()
+                    continue
                 tmpmbw.append(bw)
                 cumulative_bw.append(bw)
             line=mbwraw.readline()
@@ -42,6 +46,11 @@ for d in os.listdir('.'):
             mbw_stdev = str(2* statistics.pstdev(new_bw_arr))
             mbw_variance = str(2* statistics.variance(new_bw_arr))
             mbw_stats_file.write(d+' avgbw: '+ "{0:.4f}".format(avgbw) +'\n')
+
+
+            #avgbw = str(sum(new_bw_arr)/len(new_bw_arr))
+            #mbw_stdev = str(statistics.pstdev(new_bw_arr))
+            #mbw_variance = str(statistics.variance(new_bw_arr))
             #mbw_stats_file.write(d+' avgbw: '+avgbw+'\n')
             mbw_stats_file.write('MBW std_dev : '+mbw_stdev+'\n')
             mbw_stats_file.write('MBW variance: '+mbw_variance+'\n')
@@ -53,3 +62,4 @@ mbw_stats_file.close()
 
 os.system('cat mbw_stats.txt >> stat_summary.txt')
 os.system('cat mbw_stats.txt >> short_stat_summary.txt')
+
