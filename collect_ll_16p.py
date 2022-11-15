@@ -102,7 +102,7 @@ for dd in os.listdir('.'):
                                 tmp=tmp2[1]
                                 #tmp=sline.split('IPC_ALL:')[0]
                                 if(',' in tmp):
-                                    tmp.replace(',','')
+                                    tmp.split(',')[0]
                                 print(tmp)
                                 print(tmp2)
                                 print(sline)
@@ -110,7 +110,8 @@ for dd in os.listdir('.'):
                             if('dramsim.log avgbw:' in sline):
                                 tmp=sline.split(':')[1]
                                 if(',' in tmp):
-                                    tmp.replace(',','')
+                                    tmp.split(',')[0]
+                                print(tmp)
                                 CXL_mbws[index]=float(tmp)
                             if('all_lat_avg,' in sline):
                                tmp=sline.split(',')[1]
