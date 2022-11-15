@@ -9,7 +9,7 @@ import numpy as np
 from os.path import exists
 
 #script_dir = '/shared/acho44/CXL_WD/'
-script_dir = '~/CXL_WD/qpp_scripts/'
+script_dir = '~/CXL_WD/qpp_cxl_scripts/'
 
 cwd = os.getcwd()
 
@@ -68,7 +68,9 @@ for dd in os.listdir('.'):
                             tmp=tmp2[1]
                             #tmp=sline.split('IPC_ALL:')[0]
                             if(',' in tmp):
-                                tmp.replace(',','')
+                                tmp=tmp.split(',')[0]
+                            print(tmp2)
+                            print(tmp)
                             DDR_ipcs[index]=float(tmp)
                         if('dramsim.log avgbw:' in sline):
                             tmp=sline.split(':')[1]
@@ -82,6 +84,7 @@ for dd in os.listdir('.'):
                         sline=f_sss.readline()
                     f_sss.close()
                     os.chdir('..')
+                os.chdir('..')
             elif('C_64_MC_32' in aa): ##CXL
                 print(os.getcwd())
                 print(aa)
@@ -103,7 +106,8 @@ for dd in os.listdir('.'):
                             tmp=tmp2[1]
                             #tmp=sline.split('IPC_ALL:')[0]
                             if(',' in tmp):
-                                tmp.replace(',','')
+                                tmp=tmp.split(',')[0]
+                                #tmp.replace(',','')
                             print(tmp)
                             print(tmp2)
                             print(sline)
