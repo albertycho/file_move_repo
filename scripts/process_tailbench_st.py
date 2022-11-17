@@ -34,9 +34,12 @@ f_st_summary = open('tailbench_st_summary.txt','w')
 avgst = str(sum(cumulative_st)/len(cumulative_st))
 p90 = str(np.percentile(cumulative_st, 90))
 p95 = str(np.percentile(cumulative_st, 95))
+p99 = str(np.percentile(cumulative_st, 99))
 f_st_summary.write('avg_st, '+avgst +',\n')
 f_st_summary.write('p90 , '+p90 +',\n')
 f_st_summary.write('p95 , '+p95 +',\n')
+f_st_summary.write('p99 , '+p99 +',\n')
 
 f_st_summary.close()
 
+os.system("cat tailbench_st_summary.txt");
