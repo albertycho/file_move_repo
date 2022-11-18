@@ -45,7 +45,7 @@ for dd in os.listdir('.'):
         print(dd)
         os.chdir(dd)
         for aa in os.listdir('.'):
-            if(KEYWORDFOR64P in aa):
+            if('high_util' in aa):
                 if('C_128_MC_8' in aa): ##DDR
                     print(os.getcwd())
                     print(aa)
