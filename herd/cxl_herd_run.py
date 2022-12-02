@@ -7,7 +7,8 @@ import argparse
 #args: 1 outdir 2 zsim_exec 3 base cfg file 4 num_server 5 phaseLength 
 
 # this is your base zsim directory
-home = '/nethome/acho44/zsim/albert_dev_zsim/zSim'
+#home = '/nethome/acho44/zsim/albert_dev_zsim/zSim'
+home = '/home/azureuser/CXL_WD/herd_zSim/'
 #home = '/nethome/acho44/zsim/1027_zSim'
 
 herd_path = '/nethome/acho44/zsim/herd-sonuma-zsim/build/herd'
